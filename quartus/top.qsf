@@ -125,4 +125,48 @@ set_location_assignment PIN_A16 -to HEX1[7]
 
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[*]
 
+
+
+# VGA source files
+
+set_global_assignment -name VERILOG_FILE vga_controller.v
+set_global_assignment -name VERILOG_FILE pll.v
+
+# VGA synchronization
+
+set_location_assignment PIN_N3 -to VGA_HS
+set_location_assignment PIN_N1 -to VGA_VS
+
+# VGA red
+
+set_location_assignment PIN_AA1 -to VGA_R[0]
+set_location_assignment PIN_V1 -to VGA_R[1]
+set_location_assignment PIN_Y2 -to VGA_R[2]
+set_location_assignment PIN_Y1 -to VGA_R[3]
+
+# VGA green
+
+set_location_assignment PIN_W1 -to VGA_G[0]
+set_location_assignment PIN_T2 -to VGA_G[1]
+set_location_assignment PIN_R2 -to VGA_G[2]
+set_location_assignment PIN_R1 -to VGA_G[3]
+
+# VGA blue
+
+set_location_assignment PIN_P1 -to VGA_B[0]
+set_location_assignment PIN_T1 -to VGA_B[1]
+set_location_assignment PIN_P4 -to VGA_B[2]
+set_location_assignment PIN_N2 -to VGA_B[3]
+
+# VGA I/O standards
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_HS
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[*]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[*]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[*]
+
+
+set_global_assignment -name VERILOG_FILE font_rom.v
+set_global_assignment -name VERILOG_FILE text_renderer.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
